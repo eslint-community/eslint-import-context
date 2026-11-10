@@ -1,8 +1,35 @@
 import type { TSESLint } from '@typescript-eslint/utils'
-import type { KebabCase, LiteralUnion } from 'type-fest'
 import type { NapiResolveOptions } from 'unrs-resolver'
 
 import type { PluginName } from './utils.js'
+
+export type Primitive =
+  | bigint
+  | boolean
+  | number
+  | string
+  | symbol
+  | null
+  | undefined
+
+// Inlined from type-fest to keep its helpers out of this package's dependencies.
+export type LiteralUnion<LiteralType, BaseType extends Primitive> =
+  | LiteralType
+  | (BaseType & Record<never, never>)
+
+export type KebabCase<S extends string> = S extends ''
+  ? S
+  : S extends `${infer First}${infer Rest}`
+    ? `${Lowercase<First>}${KebabCaseRest<Rest>}`
+    : S
+
+export type KebabCaseRest<S extends string> = S extends ''
+  ? S
+  : S extends `${infer First}${infer Rest}`
+    ? First extends Lowercase<First>
+      ? `${First}${KebabCaseRest<Rest>}`
+      : `-${Lowercase<First>}${KebabCaseRest<Rest>}`
+    : S
 
 export type FileExtension = `.${string}`
 
