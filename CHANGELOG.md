@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.2.1
+
+### Patch Changes
+
+- [#36](https://github.com/eslint-community/eslint-import-context/pull/36) [`31ff271`](https://github.com/eslint-community/eslint-import-context/commit/31ff2714d60ccc0cb59df3e11bf43141593aa5a3) Thanks [@JounQin](https://github.com/JounQin)! - fix(deps): revert to `unrs-resolver` for better compatibility
+
 ## 0.2.0
 
 ### Minor Changes
