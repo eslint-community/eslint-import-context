@@ -17,22 +17,41 @@ export type LiteralUnion<LiteralType, BaseType extends Primitive> =
   | LiteralType
   | (BaseType & Record<never, never>)
 
+type IsUpper<C extends string> =
+  C extends Uppercase<C> ? (C extends Lowercase<C> ? false : true) : false
+
+type IsLower<C extends string> =
+  C extends Lowercase<C> ? (C extends Uppercase<C> ? false : true) : false
+
 export type KebabCase<S extends string> = S extends ''
   ? S
   : S extends `${infer First}${infer Rest}`
-    ? First extends ' ' | '_'
+    ? First extends ' ' | '_' | '-'
       ? KebabCase<Rest>
-      : `${Lowercase<First>}${KebabCaseRest<Rest>}`
+      : `${Lowercase<First>}${KebabCaseRest<Rest, First>}`
     : S
 
-export type KebabCaseRest<S extends string> = S extends ''
+export type KebabCaseRest<
+  S extends string,
+  Prev extends string = 'sep',
+> = S extends ''
   ? S
   : S extends `${infer First}${infer Rest}`
-    ? First extends ' ' | '_'
-      ? `-${KebabCaseRest<Rest>}`
-      : First extends Lowercase<First>
-        ? `${First}${KebabCaseRest<Rest>}`
-        : `-${Lowercase<First>}${KebabCaseRest<Rest>}`
+    ? First extends ' ' | '_' | '-'
+      ? Prev extends 'sep'
+        ? KebabCaseRest<Rest>
+        : `-${KebabCaseRest<Rest>}`
+      : IsUpper<First> extends true
+        ? IsUpper<Prev> extends true
+          ? Rest extends `${infer Next}${infer _}`
+            ? IsLower<Next> extends true
+              ? `-${Lowercase<First>}${KebabCaseRest<Rest, First>}`
+              : `${Lowercase<First>}${KebabCaseRest<Rest, First>}`
+            : `${Lowercase<First>}${KebabCaseRest<Rest, First>}`
+          : Prev extends 'sep'
+            ? `${Lowercase<First>}${KebabCaseRest<Rest, First>}`
+            : `-${Lowercase<First>}${KebabCaseRest<Rest, First>}`
+        : `${Lowercase<First>}${KebabCaseRest<Rest, First>}`
     : S
 
 export type FileExtension = `.${string}`
