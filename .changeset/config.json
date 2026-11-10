@@ -3,7 +3,7 @@
   "changelog": [
     "@changesets/changelog-github",
     {
-      "repo": "un-ts/eslint-import-context"
+      "repo": "eslint-community/eslint-import-context"
     }
   ],
   "commit": false,
