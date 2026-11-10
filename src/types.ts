@@ -20,15 +20,19 @@ export type LiteralUnion<LiteralType, BaseType extends Primitive> =
 export type KebabCase<S extends string> = S extends ''
   ? S
   : S extends `${infer First}${infer Rest}`
-    ? `${Lowercase<First>}${KebabCaseRest<Rest>}`
+    ? First extends ' ' | '_'
+      ? KebabCase<Rest>
+      : `${Lowercase<First>}${KebabCaseRest<Rest>}`
     : S
 
 export type KebabCaseRest<S extends string> = S extends ''
   ? S
   : S extends `${infer First}${infer Rest}`
-    ? First extends Lowercase<First>
-      ? `${First}${KebabCaseRest<Rest>}`
-      : `-${Lowercase<First>}${KebabCaseRest<Rest>}`
+    ? First extends ' ' | '_'
+      ? `-${KebabCaseRest<Rest>}`
+      : First extends Lowercase<First>
+        ? `${First}${KebabCaseRest<Rest>}`
+        : `-${Lowercase<First>}${KebabCaseRest<Rest>}`
     : S
 
 export type FileExtension = `.${string}`
