@@ -3,7 +3,7 @@
   "version": "0.2.1",
   "type": "commonjs",
   "description": "Provide context info for eslint-plugin-import-x, so no extra arguments need to be added.",
-  "repository": "git+https://github.com/un-ts/eslint-import-context.git",
+  "repository": "git+https://github.com/eslint-community/eslint-import-context.git",
   "author": "JounQin <admin@1stg.me> (https://www.1stG.me)",
   "funding": "https://opencollective.com/eslint-import-context",
   "license": "MIT",

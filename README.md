@@ -1,11 +1,11 @@
 # eslint-import-context
 
-[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/un-ts/eslint-import-context/ci.yml?branch=main)](https://github.com/un-ts/eslint-import-context/actions/workflows/ci.yml?query=branch%3Amain)
-[![Codecov](https://img.shields.io/codecov/c/github/un-ts/eslint-import-context.svg)](https://codecov.io/gh/un-ts/eslint-import-context)
-[![type-coverage](https://img.shields.io/badge/dynamic/json.svg?label=type-coverage&prefix=%E2%89%A5&suffix=%&query=$.typeCoverage.atLeast&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fun-ts%2Feslint-import-context%2Fmain%2Fpackage.json)](https://github.com/plantain-00/type-coverage)
-[![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/un-ts/eslint-import-context)](https://coderabbit.ai)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/eslint-community/eslint-import-context/ci.yml?branch=main)](https://github.com/eslint-community/eslint-import-context/actions/workflows/ci.yml?query=branch%3Amain)
+[![Codecov](https://img.shields.io/codecov/c/github/eslint-community/eslint-import-context.svg)](https://codecov.io/gh/eslint-community/eslint-import-context)
+[![type-coverage](https://img.shields.io/badge/dynamic/json.svg?label=type-coverage&prefix=%E2%89%A5&suffix=%&query=$.typeCoverage.atLeast&uri=https%3A%2F%2Fraw.githubusercontent.com%2Feslint-community%2Feslint-import-context%2Fmain%2Fpackage.json)](https://github.com/plantain-00/type-coverage)
+[![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/eslint-community/eslint-import-context)](https://coderabbit.ai)
 [![npm](https://img.shields.io/npm/v/eslint-import-context.svg)](https://www.npmjs.com/package/eslint-import-context)
-[![GitHub Release](https://img.shields.io/github/release/un-ts/eslint-import-context)](https://github.com/un-ts/eslint-import-context/releases)
+[![GitHub Release](https://img.shields.io/github/release/eslint-community/eslint-import-context)](https://github.com/eslint-community/eslint-import-context/releases)
 
 [![Conventional Commits](https://img.shields.io/badge/conventional%20commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com)
